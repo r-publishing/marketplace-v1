@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import CardList from '../components/cardList';
 import styles from '../styles/Home.module.css'
@@ -18,8 +19,8 @@ export default function Home() {
             <h1>RChain Publishing Marketplace</h1>
             <h5>Publish once and be discovered everywhere!</h5>
             <div>
-              <button type="button" className={`btn btn-md btn-danger ${styles.margin}`}>Upload file</button>
-              <button type="button" className={`btn btn-md btn-outline-danger ${styles.margin}`}>Browse NFTs</button>
+              <button type="button" className={`btn btn-md btn-danger ${styles.margin}`}><Link href="/create"><a>Upload</a></Link></button>
+              <button type="button" className={`btn btn-md btn-outline-danger ${styles.margin}`}><Link href="/marketplace"><a>Browse</a></Link></button>
             </div>
         </div>
     </section>
