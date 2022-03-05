@@ -1,0 +1,16 @@
+.wrapper {
+    margin-top: 200px;
+    min-height: calc(80vh - 50px);
+}
+
+.aboutRpc {
+    margin-bottom: 50px;
+}
+
+.aboutRchain {
+    
+}
+
+.red {
+    color: #a50b00;
+  }
