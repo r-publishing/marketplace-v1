@@ -12,7 +12,8 @@ export default function footer() {
         href="#"
       >
         {" "}
-        <p> @Copyright by the RPC Team</p>{" "}
+        <p> @Copyright by the RPC Team. <sm className={styles.credit}>Images by Rob Vonglas</sm></p>{" "}
+        
       </a>
     </div>
   </nav>

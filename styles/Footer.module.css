@@ -6,3 +6,7 @@
     margin: 0 auto;
     flex-shrink: 0;
 }
+
+.credit {
+    font-size: 0.7rem;
+}
