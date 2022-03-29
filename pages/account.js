@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image'
-
 import FileList from '../components/fileList';
 
 import styles from '../styles/Account.module.css';
@@ -13,6 +12,8 @@ export default function account() {
   console.log(start + '...' + end);
 
   const balance = 10;
+
+  
 
   return (
     <div className={styles.wrapper}>

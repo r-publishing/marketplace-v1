@@ -1,7 +1,9 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { Provider } from 'react-redux';
 
 import Nav from '../layouts/nav';
 import Footer from '../layouts/footer';
+import { store } from '../redux/store';
 
 import '../styles/globals.css'
 
@@ -21,7 +23,10 @@ function MyApp({ Component, pageProps }) {
 
   </Head>
   <Nav />
+  <Provider store={store}>
   <Component {...pageProps} />
+  </Provider>
+  
   <Footer />
   </>
   )

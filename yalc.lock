@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "rchain-token": {
+      "version": "10.0.0",
+      "signature": "ddcaa8c389d66936aab6315c11ed28a9",
+      "file": true
+    }
+  }
+}
