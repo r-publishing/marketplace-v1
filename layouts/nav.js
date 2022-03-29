@@ -14,11 +14,10 @@ export default function nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className={`navbar-nav ${styles.parent}`}>
-                <div className={styles.list}><Link href="/marketplace"><a>Browse</a></Link></div>
-                <div className={styles.list}><Link href="/about"><a>About Us</a></Link></div>
-                <div className={styles.list}><Link href="/account"><a>Profile</a></Link></div>
-                <div className={styles.list}><Link href="/create"><a>Upload</a></Link></div>
-                <button type="button" className="btn btn-sm btn-outline-danger">Connect Wallet</button>
+                <div className={styles.list}><Link href="/marketplace"><a>Explore Collections</a></Link></div>
+                <div className={styles.list}><Link href="/create"><a className={`fa fa-upload fa-2x ${styles.red}`}></a></Link></div>
+                <div className={styles.list}><Link href="/account"><a className={`far fa-user-circle fa-2x ${styles.red}`}></a></Link></div>
+                <div className={styles.list}><Link href="/account"><a className={`fas fa-wallet fa-2x ${styles.red}`}></a></Link></div>
             </div>
         </div>
     </nav>

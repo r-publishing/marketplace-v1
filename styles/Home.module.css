@@ -23,7 +23,7 @@
     width: 100vw;
     height: 50vh;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     text-align: left;
     color: white;
@@ -68,6 +68,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  margin-bottom: 70px;
 }
 
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+
 import styles from '../styles/Footer.module.css';
 
 export default function footer() {
@@ -7,14 +9,14 @@ export default function footer() {
     className={`navbar navbar-expand-sm navbar-light bg-light ${styles.footer}`}
   >
     <div className={`${styles.footer}`}>
-      <a
+      <div
         className="navbar-brand copyright"
         href="#"
       >
         {" "}
-        <p> @Copyright by the RPC Team. <sm className={styles.credit}>Images by Rob Vonglas</sm></p>{" "}
+        <p className={styles.text}> @Copyright by the RPC Team..... <Link href="/about"><a className={styles.red}>About Us</a></Link></p>{" "}
         
-      </a>
+      </div>
     </div>
   </nav>
   )

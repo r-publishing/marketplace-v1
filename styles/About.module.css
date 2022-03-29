@@ -14,3 +14,19 @@
 .red {
     color: #a50b00;
   }
+
+  .moreinfo {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+    color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-bottom: 70px;
+  }

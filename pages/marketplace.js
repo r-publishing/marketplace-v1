@@ -8,10 +8,7 @@ export default function marketplace() {
   return (
     <>
         <div className={`container ${styles.margin}`}>
-         <h2>Browse NFTs</h2>
-            <CardList />
-            <CardList />
-            <CardList />
+         <h2>Explore Collections</h2>
             <CardList />
         </div>
     </>
