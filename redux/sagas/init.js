@@ -24,12 +24,12 @@ const load = function* (action) {
       );
 
   const privateKey = action.payload.privateKey;
-  const masterRegistryUri = action.payload.registryUri;
+  const registryUri = action.payload.registryUri;
   const user = action.payload.user;
   const storeStr = action.payload.store;
   const pubKey = rchainToolkit.utils.publicKeyFromPrivateKey(privateKey);
 
-const term2 = readBoxTerm({ boxId: user, masterRegistryUri: masterRegistryUri });
+const term2 = readBoxTerm({ boxId: user, masterRegistryUri: registryUri });
  
 const readBoxResult = yield rchainToolkit.http.exploreDeploy(
     state.reducer.readOnlyUrl,

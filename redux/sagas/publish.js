@@ -98,6 +98,6 @@ const publish = function*(action) {
   return true;
 };
 
-export const uploadFileSaga = function*() {
-    yield takeEvery('PUBLISH', publish);
+export const publishSaga = function*() {
+    yield takeEvery('PUBLISH_TO_PUBLIC_STORE', publish);
 }

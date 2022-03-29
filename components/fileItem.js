@@ -7,33 +7,75 @@ import styles from '../styles/cardItem.module.css';
 
 function FileItemComponent(props) {
   
+  const nftData = props.userNftData;
+
+  const [price, setPrice] = useState();
+  const [id, setId] = useState();
+  const [fileData, setFileData] = useState({});
+
+
+  function handlePriceChange(e) {
+    e.preventDefault();
+    setPrice(e.target.value);
+  }
+
+  function getNftData(file) {
+    console.log('this is the file',file.description);
+    setId(file.id);
+    setFileData({
+      [file.name]: {
+        id: file.id,
+        description: file.description,
+        name: file.name,
+        mimeType: file.mimeType,
+        data: file.data
+      }
+    })
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+
+    console.log(id, fileData);
+  if(nftData.length !== 0) {
+    props.publish({
+      id: id,
+      price: price,
+      user: 'test',
+      registryUri: 't3t3yg8aw6gj4h46bf97cjegwrfps1m3gq7ogp4dtjrr9aryg6h514',
+      privateKey: 'db6bf41db59265f09862784875d6fa9a4d9d6b4529d6bfbe176e85e226fb1588',
+      file: fileData
+    })
+    
+  }
+  }
+
   useEffect(() => {
     props.init(
       {
-        store: 'storeContract',
-        user: 'store',
+        store: 'test',
+        user: 'test',
         registryUri: 't3t3yg8aw6gj4h46bf97cjegwrfps1m3gq7ogp4dtjrr9aryg6h514',
         privateKey: 'db6bf41db59265f09862784875d6fa9a4d9d6b4529d6bfbe176e85e226fb1588',
       }
     )
   }, [])
 
-  const nftData = props.userNftData;
-
   return (
     <>
 <div className={styles.container}>
   {nftData.length !== 0 ? (
     <>
-     {Object.values(nftData).map(file => (
+     {Object.values(nftData).map((file) => (
+
     <div className={`col`} key={file.name}>
       <div className={`card shadow-sm ${styles.customCard}`}>
        <Image src={`data:${file?.mimeType};base64, ${file?.data}`} className="card-img-top" alt={file?.name} height={500} width={500} />
        <div className="card-body">
-        <p className="card-text">{file?.name}</p>
+        <p className="card-text">{file?.id}</p>
         <div className="d-flex justify-content-between align-items-center">
         <div className="btn-group">
-            <button type="button" className="btn btn-sm btn-outline-danger">Mint as NFT</button>
+            <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#setPriceModal" onClick={() => getNftData(file)}>Publish on marketplace</button>
             </div>
           <small className="text-muted"></small>
         </div>
@@ -47,6 +89,27 @@ function FileItemComponent(props) {
     <div>loading!</div>
   )
   }
+</div>
+{/* <!-- Modal --> */}
+<div className="modal fade" id="setPriceModal" tabIndex="-1" role="dialog" aria-hidden="true">
+  <div className="modal-dialog modal-dialog-centered" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLongTitle">Publish on public marketplace</h5>
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="modal-body">
+      <label htmlFor=""><b>Set Price</b></label>
+            <input type="text" className="form-control" id="name" aria-describedby="" placeholder="Enter Price in Rev" value={price} onChange={handlePriceChange}/>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" className="btn btn-outline-danger" onClick={handleSubmit}>Publish</button>
+      </div>
+    </div>
+  </div>
 </div>
   </>  
   )
@@ -71,9 +134,21 @@ const FileItem = connect(
             privateKey: props.privateKey,
           }
         })
-      }
-    }
+      },
+      publish: (props) => {
+        dispatch({
+          type: 'PUBLISH_TO_PUBLIC_STORE',
+          payload: {
+            id: props.id,
+            price: props.price,
+            user: props.user,
+            registryUri: props.registryUri,
+            privateKey: props.privateKey,
+            file: props.file
+          }
+        })
   }
+}}
 )(FileItemComponent)
 
 export default FileItem;

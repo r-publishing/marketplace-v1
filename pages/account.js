@@ -29,7 +29,7 @@ export default function account() {
                 <b>{balance} REV</b>
             </div>
         <div className={styles.collection}>
-            <h3>My Files</h3>
+            <h3>My files</h3>
             <FileList />
         </div>
         </div>
