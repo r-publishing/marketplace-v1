@@ -1,7 +1,7 @@
 .wrapper {
-    min-height: calc(80vh - 50px);
+  min-height: calc(80vh - 50px);
 }
 
 .upload {
-    margin-top: 200px;
+  margin-top: 200px;
 }

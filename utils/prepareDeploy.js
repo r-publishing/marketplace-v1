@@ -1,26 +1,22 @@
-import * as rchainToolkit from 'rchain-toolkit';
+import * as rchainToolkit from "rchain-toolkit";
 
-const prepareDeploy = async (
-    httpUrlReadOnly,
-    publicKey,
-    timestamp
-  ) => {
-    let prepareDeployResponse;
-    try {
-      prepareDeployResponse = await rchainToolkit.http.prepareDeploy(
-        httpUrlReadOnly,
-        {
-          deployer: publicKey,
-          timestamp: timestamp,
-          nameQty: 1,
-        }
-      );
-    } catch (err) {
-      console.log(err);
-      throw new Error('Unable to prepare deploy');
-    }
-  
-    return prepareDeployResponse;
-  };
+const prepareDeploy = async (httpUrlReadOnly, publicKey, timestamp) => {
+  let prepareDeployResponse;
+  try {
+    prepareDeployResponse = await rchainToolkit.http.prepareDeploy(
+      httpUrlReadOnly,
+      {
+        deployer: publicKey,
+        timestamp: timestamp,
+        nameQty: 1,
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    throw new Error("Unable to prepare deploy");
+  }
 
-  export default prepareDeploy;
+  return prepareDeployResponse;
+};
+
+export default prepareDeploy;
