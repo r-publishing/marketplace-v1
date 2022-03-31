@@ -23,7 +23,7 @@ export default function Home() {
                 speed={200}
               />
             </h1>
-            <h5>RChain Publishing is the world's greenest NFT marketplace</h5>
+            <h5>RChain Publishing is the world&apos;s greenest NFT marketplace</h5>
             <div>
               <button
                 type="button"
