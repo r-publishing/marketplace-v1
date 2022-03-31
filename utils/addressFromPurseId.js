@@ -1,1 +1,2 @@
-export const addressFromPurseId = (registryUri, bagId) => registryUri + '/' + bagId
+export const addressFromPurseId = (registryUri, bagId) =>
+  registryUri + "/" + bagId;

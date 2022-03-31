@@ -1,14 +1,38 @@
 .customCard {
-    transition: transform .2s;
+  transition: transform 0.2s;
 }
 
 .customCard:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
-    z-index: 3;
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
+  z-index: 3;
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+
+.customBtn {
+  border-color: #636fa4;
+  color: #636fa4;
+  background-color: transparent;
+}
+
+.customBtn:hover {
+  border-color: #636fa4;
+  color: white;
+  background-color: #636fa4;
+}
+
+.customBtnInverted {
+  border-color: #636fa4;
+  color: white;
+  background-color: #636fa4;
+}
+
+.customBtnInverted:hover {
+  border-color: #636fa4;
+  color: #636fa4;
+  background-color: transparent;
 }

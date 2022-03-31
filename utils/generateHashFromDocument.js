@@ -1,12 +1,10 @@
-import { Folder } from '../store';
+import { Folder } from "../store";
 
-const { blake2b } = require('blakejs');
+const { blake2b } = require("blakejs");
 
 export default hashGenerator = (folder) => {
   const signaturesOrdered = [];
-  let ordered = [
-    signaturesOrdered,
-  ];
+  let ordered = [signaturesOrdered];
   if (folder.signatures[0]) {
     signaturesOrdered[0] = [
       folder.signatures[0].publicKey,

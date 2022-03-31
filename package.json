@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "aos": "^3.0.0-beta.6",
     "did-jwt": "^5.12.4",
     "did-resolver": "^3.1.5",
     "dids": "^2.4.3",
