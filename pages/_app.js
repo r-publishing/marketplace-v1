@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { Provider } from "react-redux";
 
+import { DAppProvider } from "@usedapp/core";
+
 import Nav from "../layouts/nav";
 import Footer from "../layouts/footer";
 import { store } from "../redux/store";
@@ -50,12 +52,13 @@ function MyApp({ Component, pageProps }) {
           crossOrigin="anonymous"
         ></script>
       </Head>
-      <Nav />
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
-
-      <Footer />
+      <DAppProvider config={{}}>
+        <Provider store={store}>
+          <Nav />
+          <Component {...pageProps} />
+        </Provider>
+        <Footer />
+      </DAppProvider>
     </>
   );
 }

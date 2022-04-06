@@ -6,11 +6,10 @@ export const initialState = {
   isLoading: false,
 
   //public store data
-  storeContractId: "",
-  storeBoxId: "",
   storeNftData: {},
 
   // user data
+  address: "",
   userContractId: "",
   userBoxId: "",
   userNftData: {},
@@ -21,6 +20,19 @@ export default function reducer(state = initialState, action) {
   console.log(action);
   switch (action.type) {
     case "INIT": {
+      return {
+        ...state,
+      };
+    }
+    case "INIT_USER_WALLET": {
+      return {
+        ...state,
+        address: action.payload.address,
+        userContractId: action.payload.userContractId,
+        userBoxId: action.payload.userBoxId,
+      };
+    }
+    case "INIT_STORE": {
       return {
         ...state,
       };
@@ -49,24 +61,17 @@ export default function reducer(state = initialState, action) {
       };
     }
 
-    // case 'SET_PLATFORM': {
-    //   return {
-    //     ...state,
-    //     platform: action.payload.platform,
-    //   };
-    // }
-    // case 'SET_USER': {
-    //   return {
-    //     ...state,
-    //     user: action.payload.user,
-    //   }
-    // }
-    // case 'SET_SEARCH_TEXT': {
-    //   return {
-    //     ...state,
-    //     searchText: action.payload.searchText,
-    //   };
-    // }
+    case "PURCHASE_NFT": {
+      return {
+        ...state,
+      };
+    }
+    case "SAVE_STORE_NFT_DATA_COMPLETED": {
+      return {
+        ...state,
+        storeNftData: action.payload,
+      };
+    }
     default: {
       return state;
     }

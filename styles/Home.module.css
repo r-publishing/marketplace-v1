@@ -50,9 +50,9 @@
 }
 
 .customBtnInverted:hover {
-  border-color: #636fa4;
+  border-color: #464e74;
   color: white;
-  background-color: transparent;
+  background-color: #464e74;
 }
 
 .tagline {

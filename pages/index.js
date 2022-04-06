@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import ReactTypingEffect from "react-typing-effect";
 
 import CardList from "../components/cardList";
 import styles from "../styles/Home.module.css";
@@ -17,13 +16,10 @@ export default function Home() {
       <main>
         <section className={styles.hero}>
           <div className="hero-inner">
-            <h1>
-              <ReactTypingEffect
-                text={`Create Once. Be discovered everywhere`}
-                speed={200}
-              />
-            </h1>
-            <h5>RChain Publishing is the world&apos;s greenest NFT marketplace</h5>
+            <h1>Create once. Be discovered everywhere</h1>
+            <h5>
+              RChain Publishing is the world&apos;s greenest NFT marketplace
+            </h5>
             <div>
               <button
                 type="button"
@@ -54,10 +50,7 @@ export default function Home() {
         <section className={styles.tagline}>
           <div className="hero-inner">
             <h2 className="container">
-              <ReactTypingEffect
-                text={`Create, sell and buy NFTs without burning the planet`}
-                speed={200}
-              />
+              Create, sell and buy NFTs without burning the planet
             </h2>
           </div>
         </section>
@@ -161,12 +154,7 @@ export default function Home() {
         </section>
         <section className={`${styles.section2}`}>
           <div className={`hero-inner`}>
-            <h2 className="container">
-              <ReactTypingEffect
-                text={`Create and sell your NFTs`}
-                speed={200}
-              />
-            </h2>
+            <h2 className="container">Create and sell your NFTs</h2>
           </div>
         </section>
         <section className={styles.moreinfo}>

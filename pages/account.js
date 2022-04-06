@@ -8,7 +8,6 @@ export default function account() {
   const wallet = "11112WCJcTMtk7Pr1QAWWLebgVDcmAoPbZDZc5i67bgnzE3r98Pemb";
   const start = wallet.substring(0, 5);
   const end = wallet.substring(wallet.length - 5, wallet.length);
-  console.log(start + "..." + end);
 
   const balance = 10;
 

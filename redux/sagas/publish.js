@@ -12,7 +12,6 @@ const { createPursesTerm } = require("rchain-token");
 
 const publish = function* (action) {
   console.log("publishing file", action.payload);
-  let user = action.payload.user;
   const newBagId = action.payload.id;
   const state = store.getState();
 
@@ -24,13 +23,18 @@ const publish = function* (action) {
 
   const priceInRevlettes = action.payload.price * 1000000;
 
+  Object.entries(fileDocument).map((file) => {
+    file[1].price = action.payload.price;
+    console.log("this is the file", file[1]);
+  });
+
   const documentAsJson = JSON.stringify(fileDocument);
 
   const payload = {
     purses: {
       [newBagId]: {
         id: newBagId,
-        boxId: user,
+        boxId: process.env.NEXT_PUBLIC_STORE_BOX,
         type: "0",
         quantity: 1,
         price: priceInRevlettes,
@@ -39,9 +43,9 @@ const publish = function* (action) {
     data: {
       [newBagId]: documentAsJson,
     },
-    masterRegistryUri: "t3t3yg8aw6gj4h46bf97cjegwrfps1m3gq7ogp4dtjrr9aryg6h514",
-    contractId: "storeContract",
-    boxId: user,
+    masterRegistryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
+    contractId: process.env.NEXT_PUBLIC_STORE_CONTRACT,
+    boxId: process.env.NEXT_PUBLIC_STORE_BOX,
   };
 
   console.log(payload);

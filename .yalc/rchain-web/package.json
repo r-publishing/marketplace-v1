@@ -1,0 +1,22 @@
+{
+  "name": "rchain-web",
+  "version": "0.1.0",
+  "description": "Browser utils and http methods for interacting with rchain/RChain http api",
+  "main": "dist/rchain-web@0.1.0.js",
+  "targets": {
+    "browser": {
+      "engines": {
+        "browsers": [
+          "last 1 chrome version"
+        ]
+      }
+    }
+  },
+  "scripts": {
+    "build": "npx rollup -c rollup.config.iife.js"
+  },
+  "author": "FABCO",
+  "license": "MIT",
+  "dependencies": {},
+  "yalcSig": "d07d0b2d0c63f298aa3fc608c1eedeb6"
+}

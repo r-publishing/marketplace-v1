@@ -72,16 +72,15 @@ function UploadFormComponent(props) {
     e.preventDefault();
 
     console.log(description, fileData);
-
-    props.upload({
-      id: name,
-      user: "test",
-      registryUri: "t3t3yg8aw6gj4h46bf97cjegwrfps1m3gq7ogp4dtjrr9aryg6h514",
-      privateKey:
-        "db6bf41db59265f09862784875d6fa9a4d9d6b4529d6bfbe176e85e226fb1588",
-      file: fileData,
-      contractId: "test",
-    });
+    if (props.userBoxId !== "") {
+      props.upload({
+        id: name,
+        user: props.userBoxId,
+        registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
+        privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY,
+        file: fileData,
+      });
+    }
   }
 
   return (
@@ -148,6 +147,7 @@ const UploadForm = connect(
   (state) => {
     return {
       state: state,
+      userBoxId: state.reducer.userBoxId,
     };
   },
   (dispatch) => {

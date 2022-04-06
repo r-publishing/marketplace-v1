@@ -6,67 +6,40 @@ import styles from "../styles/cardItem.module.css";
 import placeholder from "../public/IMG_6437.jpg";
 
 function CardItemComponent(props) {
-  const nftData = props.userNftData;
+  const nftData = props.storeNftData;
 
   const [price, setPrice] = useState();
   const [id, setId] = useState();
   const [fileData, setFileData] = useState({});
 
-  function handlePriceChange(e) {
-    e.preventDefault();
-    setPrice(e.target.value);
-  }
-
   function getNftData(file) {
-    console.log("this is the file", file.description);
     setId(file.id);
-    setFileData({
-      [file.name]: {
-        id: file.id,
-        description: file.description,
-        name: file.name,
-        mimeType: file.mimeType,
-        data: file.data,
-      },
-    });
+
+    const priceInRevlettes = file.price * 1000000;
+    setPrice(priceInRevlettes);
   }
 
-  function handleSubmit(file) {
+  function purchaseNft(e) {
     e.preventDefault();
 
-    console.log("this is the file", file.description);
-    setId(file.id);
-    setFileData({
-      [file.name]: {
-        id: file.id,
-        description: file.description,
-        name: file.name,
-        mimeType: file.mimeType,
-        data: file.data,
-      },
-    });
-
-    console.log(id, fileData);
-    // if(nftData.length !== 0) {
-    //   props.publish({
-    //     id: id,
-    //     price: price,
-    //     user: 'test',
-    //     registryUri: 't3t3yg8aw6gj4h46bf97cjegwrfps1m3gq7ogp4dtjrr9aryg6h514',
-    //     privateKey: 'db6bf41db59265f09862784875d6fa9a4d9d6b4529d6bfbe176e85e226fb1588',
-    //     file: fileData
-    //   })
-
-    // }
+    console.log(id, price);
+    if (nftData.length !== 0) {
+      props.purchase({
+        id: id,
+        price: price,
+        user: "user2",
+        registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
+        privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY,
+      });
+    }
   }
 
   useEffect(() => {
-    props.init({
-      store: "test",
-      user: "test",
-      registryUri: "t3t3yg8aw6gj4h46bf97cjegwrfps1m3gq7ogp4dtjrr9aryg6h514",
-      privateKey:
-        "db6bf41db59265f09862784875d6fa9a4d9d6b4529d6bfbe176e85e226fb1588",
+    props.init_store({
+      store: process.env.NEXT_PUBLIC_STORE_CONTRACT,
+      user: process.env.NEXT_PUBLIC_STORE_BOX,
+      registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
+      privateKey: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
     });
   }, []);
 
@@ -79,7 +52,7 @@ function CardItemComponent(props) {
               <div className={`col`} key={file.name}>
                 <div className={`card shadow-sm ${styles.customCard}`}>
                   <Image
-                    src={placeholder}
+                    src={`data:${file?.mimeType};base64, ${file?.data}`}
                     className="card-img-top"
                     alt={file?.name}
                     width="100%"
@@ -94,9 +67,11 @@ function CardItemComponent(props) {
                         <button
                           type="button"
                           className={`btn btn-sm ${styles.customBtn}`}
-                          onClick={() => handleSubmit(file)}
+                          data-toggle="modal"
+                          data-target="#setPriceModal"
+                          onClick={() => getNftData(file)}
                         >
-                          Publish on marketplace
+                          Purchase this NFT for {file?.price} rev
                         </button>
                       </div>
                       <small className="text-muted"></small>
@@ -110,6 +85,48 @@ function CardItemComponent(props) {
           <div>loading!</div>
         )}
       </div>
+      {/* Modal */}
+      <div
+        className="modal fade"
+        id="setPriceModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLongTitle">
+                Are you sure you want to purchase?
+              </h5>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className={`btn ${styles.customBtn}`}
+                onClick={purchaseNft}
+              >
+                Proceed
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
@@ -118,14 +135,14 @@ const FileItem = connect(
   (state) => {
     return {
       state: state,
-      userNftData: state.reducer.userNftData,
+      storeNftData: state.reducer.storeNftData,
     };
   },
   (dispatch) => {
     return {
-      init: (props) => {
+      init_store: (props) => {
         dispatch({
-          type: "INIT",
+          type: "INIT_STORE",
           payload: {
             store: props.store,
             user: props.user,
@@ -134,7 +151,7 @@ const FileItem = connect(
           },
         });
       },
-      publish: (props) => {
+      purchase: (props) => {
         dispatch({
           type: "PURCHASE_NFT",
           payload: {
@@ -143,7 +160,6 @@ const FileItem = connect(
             user: props.user,
             registryUri: props.registryUri,
             privateKey: props.privateKey,
-            file: props.file,
           },
         });
       },
