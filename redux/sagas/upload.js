@@ -16,7 +16,6 @@ const uploadFile = function* (action) {
   const newBagId = action.payload.id;
   const state = store.getState();
 
-  const contractId = action.payload.contractId;
   const privateKey = action.payload.privateKey;
   console.log("checking private key", action.payload.privateKey);
   const publicKey = rchainToolkit.utils.publicKeyFromPrivateKey(privateKey);
@@ -40,8 +39,8 @@ const uploadFile = function* (action) {
     data: {
       [newBagId]: documentAsJson,
     },
-    masterRegistryUri: "t3t3yg8aw6gj4h46bf97cjegwrfps1m3gq7ogp4dtjrr9aryg6h514",
-    contractId: contractId,
+    masterRegistryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
+    contractId: user,
     boxId: user,
   };
 

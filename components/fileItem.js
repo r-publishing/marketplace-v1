@@ -19,7 +19,6 @@ function FileItemComponent(props) {
   }
 
   function getNftData(file) {
-    console.log("this is the file", file.description);
     setId(file.id);
     setFileData({
       [file.name]: {
@@ -35,29 +34,29 @@ function FileItemComponent(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    console.log(id, fileData);
     if (nftData.length !== 0) {
       props.publish({
         id: id,
         price: price,
-        user: "test",
-        registryUri: "t3t3yg8aw6gj4h46bf97cjegwrfps1m3gq7ogp4dtjrr9aryg6h514",
-        privateKey:
-          "db6bf41db59265f09862784875d6fa9a4d9d6b4529d6bfbe176e85e226fb1588",
+        registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
+        privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY,
         file: fileData,
       });
     }
   }
 
   useEffect(() => {
-    props.init({
-      store: "test",
-      user: "test",
-      registryUri: "t3t3yg8aw6gj4h46bf97cjegwrfps1m3gq7ogp4dtjrr9aryg6h514",
-      privateKey:
-        "db6bf41db59265f09862784875d6fa9a4d9d6b4529d6bfbe176e85e226fb1588",
-    });
-  }, []);
+    let boxId;
+    if (props.userBoxId !== "") {
+      boxId = props.userBoxId;
+
+      props.init({
+        user: boxId,
+        registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
+        privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY,
+      });
+    }
+  }, [props.userBoxId]);
 
   return (
     <>
@@ -68,7 +67,7 @@ function FileItemComponent(props) {
               <div className={`col`} key={file.name}>
                 <div className={`card shadow-sm ${styles.customCard}`}>
                   <Image
-                    src={placeholder}
+                    src={`data:${file?.mimeType};base64, ${file?.data}`}
                     className="card-img-top"
                     alt={file?.name}
                     width="100%"
@@ -166,6 +165,7 @@ const FileItem = connect(
     return {
       state: state,
       userNftData: state.reducer.userNftData,
+      userBoxId: state.reducer.userBoxId,
     };
   },
   (dispatch) => {
@@ -174,7 +174,6 @@ const FileItem = connect(
         dispatch({
           type: "INIT",
           payload: {
-            store: props.store,
             user: props.user,
             registryUri: props.registryUri,
             privateKey: props.privateKey,
