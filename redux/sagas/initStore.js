@@ -19,13 +19,15 @@ const load = function* (action) {
     payload: true,
   });
 
-  const privateKey = action.payload.privateKey;
-  const registryUri = action.payload.registryUri;
-  const user = action.payload.user;
-  const storeStr = action.payload.store;
-  const pubKey = rchainToolkit.utils.publicKeyFromPrivateKey(privateKey);
+  const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY;
+  const public_store = process.env.NEXT_PUBLIC_STORE;
+  const masterRegistry = process.env.NEXT_PUBLIC_MASTER_REGISTRY;
+  const publicKey = rchainToolkit.utils.publicKeyFromPrivateKey(privateKey);
 
-  const term2 = readBoxTerm({ boxId: user, masterRegistryUri: registryUri });
+  const term2 = readBoxTerm({
+    boxId: public_store,
+    masterRegistryUri: masterRegistry,
+  });
 
   const readBoxResult = yield rchainToolkit.http.exploreDeploy(
     state.reducer.readOnlyUrl,
@@ -36,14 +38,14 @@ const load = function* (action) {
   console.log("readBoxResult:", readBoxResult);
 
   const box = rchainToolkit.utils.rhoValToJs(JSON.parse(readBoxResult).expr[0]);
-  //   console.log('box:',box);
+  console.log("box:", box);
   const pursesIds =
-    Object.keys(box.purses).length > 0 ? box.purses[storeStr] : [];
-  //   console.log('purseId',pursesIds);
+    Object.keys(box.purses).length > 0 ? box.purses[public_store] : [];
+  console.log("purseId", pursesIds);
 
   const term1 = readPursesTerm({
-    masterRegistryUri: registryUri,
-    contractId: storeStr,
+    masterRegistryUri: masterRegistry,
+    contractId: public_store,
     pursesIds: pursesIds || [],
   });
 
@@ -65,9 +67,9 @@ const load = function* (action) {
 
   if (pursesKeys.length > 0) {
     const term3 = readPursesDataTerm({
-      masterRegistryUri: registryUri,
+      masterRegistryUri: masterRegistry,
       pursesIds: pursesKeys,
-      contractId: storeStr,
+      contractId: public_store,
     });
 
     readPursesDataResult = yield rchainToolkit.http.exploreDeploy(
@@ -77,7 +79,7 @@ const load = function* (action) {
       }
     );
   }
-  // console.log('readAllPursesDataResult',readPursesDataResult);
+  console.log("readAllPursesDataResult", readPursesDataResult);
 
   const rchainTokenValues = rchainToolkit.utils.rhoValToJs(
     JSON.parse(readBoxResult).expr[0]
@@ -90,20 +92,19 @@ const load = function* (action) {
       JSON.parse(readPursesDataResult).expr[0]
     );
 
-    // console.log('this is bagsData',bagsData);
+    console.log("this is bagsData", bagsData);
     const newBagsData = {};
 
     Object.keys(bagsData).forEach((key) => {
       const dataObject = JSON.parse(replaceAllBackSlash(bagsData[key]));
 
       Object.keys(dataObject).forEach((key) => {
-        newBagsData[addressFromPurseId(action.payload.registryUri, key)] =
-          dataObject[key];
+        newBagsData[addressFromPurseId(masterRegistry, key)] = dataObject[key];
       });
       return;
     });
 
-    // console.log('this is new bags data:',newBagsData);
+    console.log("this is new bags data:", newBagsData);
 
     yield put({
       type: "SAVE_STORE_NFT_DATA_COMPLETED",

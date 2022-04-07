@@ -5,25 +5,35 @@ import prepareDeploy from "../../utils/prepareDeploy";
 import waitForUnforgeable from "../../utils/waitForUnforgeable";
 import { store } from "../store";
 
-const { purchaseTerm, readPursesDataTerm } = require("rchain-token");
+const {
+  purchaseTerm,
+  readPursesDataTerm,
+  createPursesTerm,
+} = require("rchain-token");
 
 const purchase = function* (action) {
-  console.log("purchasing Nft...", action.payload);
-
+  console.log("uploading file", action.payload);
+  let user = action.payload.user;
+  const newBagId = action.payload.id;
   const state = store.getState();
 
-  const privateKey = action.payload.privateKey;
+  const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY;
+  const public_store = process.env.NEXT_PUBLIC_STORE;
+  const masterRegistry = process.env.NEXT_PUBLIC_MASTER_REGISTRY;
   const publicKey = rchainToolkit.utils.publicKeyFromPrivateKey(privateKey);
 
-  let newBagId = action.payload.id;
+  const fileDocument = action.payload.file;
+
+  const documentAsJson = JSON.stringify(fileDocument);
 
   let readPursesDataResult;
 
   const term3 = readPursesDataTerm({
-    masterRegistryUri: action.payload.registryUri,
+    masterRegistryUri: masterRegistry,
     pursesIds: [newBagId],
-    contractId: "public_store",
+    contractId: public_store,
   });
+
   readPursesDataResult = yield rchainToolkit.http.exploreDeploy(
     state.reducer.readOnlyUrl,
     {
@@ -38,20 +48,22 @@ const purchase = function* (action) {
     );
   }
 
+  console.log("bagData", bagData);
+
   const payload = {
-    masterRegistryUri: action.payload.registryUri,
     purseId: newBagId,
-    contractId: `public_store`,
-    boxId: action.payload.user,
     quantity: 1,
-    newId: null,
     merge: true,
+    newId: null,
     data: bagData[newBagId],
+    masterRegistryUri: masterRegistry,
     price: action.payload.price,
+    contractId: public_store,
+    boxId: user,
     publicKey: publicKey,
   };
 
-  const term2 = purchaseTerm(payload);
+  const term = purchaseTerm(payload);
 
   let validAfterBlockNumberResponse;
   try {
@@ -59,13 +71,16 @@ const purchase = function* (action) {
       yield rchainToolkit.http.blocks(state.reducer.readOnlyUrl, {
         position: 1,
       })
-    );
+    )[0].blockNumber;
   } catch (err) {
     console.log(err);
     throw new Error("Unable to get last finalized block");
   }
 
+  console.log("validAfterBlockNumber", validAfterBlockNumberResponse);
+
   const timestamp = new Date().getTime();
+
   const pd = yield prepareDeploy(
     state.reducer.readOnlyUrl,
     publicKey,
@@ -75,7 +90,7 @@ const purchase = function* (action) {
   const deployOptions = yield rchainToolkit.utils.getDeployOptions(
     "secp256k1",
     timestamp,
-    term2,
+    term,
     privateKey,
     publicKey,
     1,
@@ -83,18 +98,22 @@ const purchase = function* (action) {
     validAfterBlockNumberResponse
   );
 
-  const deployResponse = yield rchainToolkit.http.deploy(
-    state.reducer.validatorUrl,
-    deployOptions
-  );
-  if (deployResponse.startsWith('"Success!')) {
-    Swal.fire({
-      text: "Purchase is in progress",
-      showConfirmButton: false,
-    });
+  try {
+    const deployResponse = yield rchainToolkit.http.deploy(
+      state.reducer.validatorUrl,
+      deployOptions
+    );
+
+    yield waitForUnforgeable(
+      JSON.parse(pd).names[0],
+      state.reducer.readOnlyUrl
+    );
+  } catch (err) {
+    console.info("Unable to deploy");
+    console.error(err);
   }
 
-  yield waitForUnforgeable(JSON.parse(pd).names[0], state.reducer.readOnlyUrl);
+  console.log(state);
 
   return true;
 };

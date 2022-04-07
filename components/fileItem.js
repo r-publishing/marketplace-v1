@@ -19,10 +19,10 @@ function FileItemComponent(props) {
   }
 
   function getNftData(file) {
-    setId(file.id);
+    setId(file.id + "_file");
     setFileData({
       [file.name]: {
-        id: file.id,
+        id: file.id + "_file",
         description: file.description,
         name: file.name,
         mimeType: file.mimeType,
@@ -38,8 +38,6 @@ function FileItemComponent(props) {
       props.publish({
         id: id,
         price: price,
-        registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
-        privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY,
         file: fileData,
       });
     }
@@ -52,8 +50,6 @@ function FileItemComponent(props) {
 
       props.init({
         user: boxId,
-        registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
-        privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY,
       });
     }
   }, [props.userBoxId]);
@@ -175,8 +171,6 @@ const FileItem = connect(
           type: "INIT",
           payload: {
             user: props.user,
-            registryUri: props.registryUri,
-            privateKey: props.privateKey,
           },
         });
       },
@@ -186,9 +180,6 @@ const FileItem = connect(
           payload: {
             id: props.id,
             price: props.price,
-            user: props.user,
-            registryUri: props.registryUri,
-            privateKey: props.privateKey,
             file: props.file,
           },
         });

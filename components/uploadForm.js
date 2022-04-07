@@ -76,8 +76,6 @@ function UploadFormComponent(props) {
       props.upload({
         id: name,
         user: props.userBoxId,
-        registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
-        privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY,
         file: fileData,
       });
     }
@@ -158,10 +156,7 @@ const UploadForm = connect(
           payload: {
             id: props.id,
             user: props.user,
-            registryUri: props.registryUri,
-            privateKey: props.privateKey,
             file: props.file,
-            contractId: props.contractId,
           },
         });
       },

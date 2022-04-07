@@ -1,4 +1,4 @@
-import { put, takeEvery } from "redux-saga/effects";
+import { put, takeLatest } from "redux-saga/effects";
 import * as rchainToolkit from "rchain-toolkit";
 import { deflate } from "pako";
 
@@ -15,17 +15,18 @@ const publish = function* (action) {
   const newBagId = action.payload.id;
   const state = store.getState();
 
-  const privateKey = action.payload.privateKey;
-  console.log("checking private key", action.payload.privateKey);
+  const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY;
+  const public_store = process.env.NEXT_PUBLIC_STORE;
+  const masterRegistry = process.env.NEXT_PUBLIC_MASTER_REGISTRY;
   const publicKey = rchainToolkit.utils.publicKeyFromPrivateKey(privateKey);
 
   const fileDocument = action.payload.file;
 
   const priceInRevlettes = action.payload.price * 1000000;
+  const generatedId = newBagId;
 
   Object.entries(fileDocument).map((file) => {
     file[1].price = action.payload.price;
-    console.log("this is the file", file[1]);
   });
 
   const documentAsJson = JSON.stringify(fileDocument);
@@ -33,8 +34,8 @@ const publish = function* (action) {
   const payload = {
     purses: {
       [newBagId]: {
-        id: newBagId,
-        boxId: process.env.NEXT_PUBLIC_STORE_BOX,
+        id: generatedId,
+        boxId: public_store,
         type: "0",
         quantity: 1,
         price: priceInRevlettes,
@@ -43,12 +44,12 @@ const publish = function* (action) {
     data: {
       [newBagId]: documentAsJson,
     },
-    masterRegistryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
-    contractId: process.env.NEXT_PUBLIC_STORE_CONTRACT,
-    boxId: process.env.NEXT_PUBLIC_STORE_BOX,
+    masterRegistryUri: masterRegistry,
+    contractId: public_store,
+    boxId: public_store,
   };
 
-  console.log(payload);
+  console.log("payload", payload);
 
   const term = createPursesTerm(payload);
 
@@ -102,11 +103,9 @@ const publish = function* (action) {
     console.error(err);
   }
 
-  console.log(state);
-
   return true;
 };
 
 export const publishSaga = function* () {
-  yield takeEvery("PUBLISH_TO_PUBLIC_STORE", publish);
+  yield takeLatest("PUBLISH_TO_PUBLIC_STORE", publish);
 };

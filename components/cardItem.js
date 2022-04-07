@@ -24,23 +24,22 @@ function CardItemComponent(props) {
 
     console.log(id, price);
     if (nftData.length !== 0) {
+      let boxId;
+      if (props.userBoxId !== "") {
+        boxId = props.userBoxId;
+      }
+
       props.purchase({
         id: id,
         price: price,
-        user: "user2",
-        registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
-        privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY,
+        user: boxId,
+        file: props.storeNftData,
       });
     }
   }
 
   useEffect(() => {
-    props.init_store({
-      store: process.env.NEXT_PUBLIC_STORE_CONTRACT,
-      user: process.env.NEXT_PUBLIC_STORE_BOX,
-      registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
-      privateKey: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
-    });
+    props.init_store({});
   }, []);
 
   return (
@@ -136,6 +135,7 @@ const FileItem = connect(
     return {
       state: state,
       storeNftData: state.reducer.storeNftData,
+      userBoxId: state.reducer.userBoxId,
     };
   },
   (dispatch) => {
@@ -143,12 +143,7 @@ const FileItem = connect(
       init_store: (props) => {
         dispatch({
           type: "INIT_STORE",
-          payload: {
-            store: props.store,
-            user: props.user,
-            registryUri: props.registryUri,
-            privateKey: props.privateKey,
-          },
+          payload: {},
         });
       },
       purchase: (props) => {
@@ -158,8 +153,7 @@ const FileItem = connect(
             id: props.id,
             price: props.price,
             user: props.user,
-            registryUri: props.registryUri,
-            privateKey: props.privateKey,
+            file: props.file,
           },
         });
       },

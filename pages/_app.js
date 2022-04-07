@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <DAppProvider config={{}}>
         <Provider store={store}>
-          <Nav />
+        <Nav />
           <Component {...pageProps} />
         </Provider>
         <Footer />
