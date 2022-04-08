@@ -2,12 +2,17 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { connect } from "react-redux";
+import { useRouter } from "next/router";
+
+import { toast } from "react-toastify";
 
 import styles from "../styles/cardItem.module.css";
 import placeholder from "../public/IMG_6438.jpg";
 
 function FileItemComponent(props) {
   const nftData = props.userNftData;
+
+  const router = useRouter();
 
   const [price, setPrice] = useState();
   const [id, setId] = useState();
@@ -40,6 +45,10 @@ function FileItemComponent(props) {
         price: price,
         file: fileData,
       });
+
+      toast.success('Publishing file', {position: toast.POSITION.TOP_CENTER })
+      setTimeout(() => {router.push('/marketplace')}, 10000);
+      setTimeout(() => {router.reload()}, 15000);
     }
   }
 

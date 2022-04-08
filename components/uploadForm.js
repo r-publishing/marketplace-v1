@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { FileUploader } from "react-drag-drop-files";
 import { connect } from "react-redux";
+import { useRouter } from "next/router";
+
+import { toast } from "react-toastify";
 
 import styles from "../styles/uploadForm.module.css";
 
@@ -12,6 +15,8 @@ function UploadFormComponent(props) {
   const [fileData, setFileData] = useState({});
   const [name, setName] = useState();
   const [description, setDescription] = useState();
+
+  const router = useRouter();
 
   function handleNameChange(e) {
     e.preventDefault();
@@ -78,6 +83,10 @@ function UploadFormComponent(props) {
         user: props.userBoxId,
         file: fileData,
       });
+
+      toast.success('Uploading file', {position: toast.POSITION.TOP_CENTER })
+      setTimeout(() => {router.push('/account')}, 10000);
+      setTimeout(() => {router.reload()}, 15000);
     }
   }
 

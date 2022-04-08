@@ -1,6 +1,4 @@
 import { takeLatest, put } from "redux-saga/effects";
-// import { MetaMaskAccount, getAddrFromEth } from "rchain-api";
-import * as RChainWeb from "rchain-web";
 import * as rchainToolkit from "rchain-toolkit";
 
 import { store } from "../store";

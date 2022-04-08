@@ -3,7 +3,6 @@ import * as rchainToolkit from "rchain-toolkit";
 import { deflate } from "pako";
 
 import { store } from "../store";
-import { rchainWeb } from "../../utils/rchainWebSetup";
 import replacer from "../../utils/replacer";
 import prepareDeploy from "../../utils/prepareDeploy";
 import waitForUnforgeable from "../../utils/waitForUnforgeable";
@@ -14,6 +13,7 @@ const { createPursesTerm } = require("rchain-token");
 
 const uploadFile = function* (action) {
   console.log("uploading file", action.payload);
+
   let user = action.payload.user;
   const newBagId = action.payload.id;
   const fileDocument = action.payload.file;
