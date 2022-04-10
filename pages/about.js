@@ -316,7 +316,7 @@ export default function about() {
                             </div>
                             <div className={`${styles.teamContent}`}>
                               <h3 className={`${styles.title}`}>
-                                Bill Kuentje
+                                Bill Keuntje
                               </h3>
                               <span className={`${styles.post}`}>
                                 Chief Technology Officer
