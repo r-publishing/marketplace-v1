@@ -346,7 +346,7 @@ export default function about() {
                     <div className={`${styles.cover}`}>
                       <h3 className={`${styles.name}`}>Darryl Neudorf</h3>
                       <p className={`${styles.title}`}>
-                        Chief Security Officer
+                        Chief Strategy Officer
                       </p>
                       <div className={`${styles.social}`}>
                         <a href="#">
@@ -504,7 +504,9 @@ export default function about() {
               <p>
               RChain is a PoS (Proof-of-Stake) blockchain platform for distributed applications. Intelligent, concurrent execution throughout the network unlocks the blockchain&apos;s potential for transactions of every type and scale. It is capable of processing anything between 40,000 to 100,000 transactions per second. This is much faster than transaction speeds on the majority of the bigger blockchains.
               </p>  
-          
+               < Link href="https://rchain.coop/">
+                    <a className={`btn btn-md mt-4 ${styles.customBtnColored}`}>Read more</a>
+                  </Link>
         </section>
       </div>
     </>
