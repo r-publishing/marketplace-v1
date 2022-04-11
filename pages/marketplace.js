@@ -1,6 +1,6 @@
 import React from "react";
 
-import CardList from "../components/CardList";
+import CardList from "../components/cardList";
 
 import styles from "../styles/Market.module.css";
 
