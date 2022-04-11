@@ -1,53 +1,41 @@
 .footer {
-  height: 50px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   margin: 0 auto;
   flex-shrink: 0;
   background: #141414;
-  height: 34vh;
   padding-top: 30px;
   color: #fff;
+}   
+
+.footer ul li{
+ padding:5px 0px;
 }
 
-.header {
-  margin-bottom: 80px;
+.about span , .contact span , .social span{
+color: #FFF; 
+font-weight: 800; 
+padding-bottom: 10px; 
+margin-bottom: 20px;
+display: block;
+text-transform: uppercase;
+font-size: 20px;
+letter-spacing: 3px;
 }
 
-.links {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.about li p , .contact li a , .social li a{
+ color:#FFF;
+ letter-spacing: 2px;
+ text-decoration:none;
+ font-size:15px;
 }
 
-.links li {
-  margin-left: 40px;
+.social li{
+ float:left;
 }
 
-.socials {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.about , .contact , .social {
+ list-style: none;
 }
 
-.socials li {
-  list-style: none;
-  margin-left: 20px;
-}
-
-.credit {
-  font-size: 0.7rem;
-}
-
-.red {
-  color: #636fa4;
-}
-
-.text {
-  font-size: 1.1rem;
+.green {
+    color: #00A36C;
 }

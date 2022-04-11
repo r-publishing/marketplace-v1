@@ -8,65 +8,94 @@ import logo from "../public/FINAL LOGOS MAR 29/FINAL LOGO GREEN ICON WHT TEXT TR
 export default function footer() {
   return (
     <div className={`${styles.footer}`}>
-      <div className="container-fluid">
+     <footer>
+    <div className="container">
         <div className="row">
-          <div className="col-sm">
-            <h5 className={styles.header}></h5>
-          </div>
-          <div className="col-sm">
-            <div className={styles.header}>
-              {" "}
-              <Image src={logo} alt={"logo"} width={400} height={100} />
+            <div className="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+                <ul className={styles.about}>
+                <Image src={logo} alt={"logo"} width={200} height={50} />    
+                     <li>
+                        <p>&copy; 2022 RChain Publishing Cooperative</p>
+                      </li>
+                           
+                     
+                 </ul>
             </div>
-            <p className={styles.links}>
-              <li>
-                <Link href="/">
-                  <a className={`${styles.red}`}>Home</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about">
-                  <a className={`${styles.red}`}>About us</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/marketplace">
-                  <a className={`${styles.red}`}>Explore</a>
-                </Link>
-              </li>
-            </p>
-            <p className={styles.socials}>
-              <li>
-                <Link href="/">
-                  <a className={`fab fa-discord ${styles.red}`}></a>
-                </Link>
-              </li>
-              <li>
-                <Link href="">
-                  <a className={`fab fa-facebook ${styles.red}`}></a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <a className={`fab fa-linkedin ${styles.red}`}></a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <a className={`fab fa-twitter ${styles.red}`}></a>
-                </Link>
-              </li>
-            </p>
-            <p>
-              Terms of Service | &copy; 2022 RChain Publishing Cooperative |
-              Privacy policy
-            </p>
-          </div>
-          <div className="col-sm">
-            <h5 className={styles.header}></h5>
-          </div>
-        </div>
-      </div>
+            
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <ul className={styles.contact}>
+                     <span>Links</span>    
+                     <li>
+                       <Link href="/about">
+                       <a>About us</a>
+                       </Link>
+                      
+                      </li>
+                           
+                      <li>
+                       <Link href="/marketplace">
+                       <a>Explore</a>
+                       </Link>
+                      
+                      </li>
+                           
+                      <li>
+                       <Link href="/about">
+                       <a>Meet the team</a>
+                       </Link>
+                      
+                      </li>
+                      <li>
+                       <Link href="#">
+                       <a>Careers</a>
+                       </Link>
+                      
+                      </li>
+                           
+                      <li>
+                       <Link href="#">
+                       <a>Investors</a>
+                       </Link>
+                      
+                      </li>
+                      <li>
+                       <Link href="#">
+                       <a>FAQs</a>
+                       </Link>
+                      
+                      </li>
+                     
+                </ul>
+            </div>
+       
+            <div className="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <ul className={styles.social}>
+                   <span>Follow our journey</span>    
+                   <li>
+                     <Link href="#">
+                     <a><i className="fab fa-discord fa-2x"></i></a>
+                     </Link>
+                   </li>
+                   <li>
+                     <Link href="#">
+                     <a><i className="fab fa-linkedin fa-2x"></i></a>
+                     </Link>
+                   </li>
+                   <li>
+                     <Link href="#">
+                     <a><i className="fab fa-telegram fa-2x"></i></a>
+                     </Link>
+                   </li>
+                   <li>
+                     <Link href="#">
+                     <a><i className="fab fa-github fa-2x"></i></a>
+                     </Link>
+                   </li>
+                 </ul>
+            </div>
+       </div> 
+    </div>
+</footer>
     </div>
   );
 }

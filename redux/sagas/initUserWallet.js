@@ -1,6 +1,4 @@
 import { takeLatest, put } from "redux-saga/effects";
-// import { MetaMaskAccount, getAddrFromEth } from "rchain-api";
-import * as RChainWeb from "rchain-web";
 import * as rchainToolkit from "rchain-toolkit";
 
 import { store } from "../store";
@@ -18,11 +16,16 @@ const initWallet = function* (action) {
     payload: true,
   });
 
+  const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY;
+  const public_store = process.env.NEXT_PUBLIC_STORE;
+  const masterRegistry = process.env.NEXT_PUBLIC_MASTER_REGISTRY;
+  const publicKey = rchainToolkit.utils.publicKeyFromPrivateKey(privateKey);
+
   const boxId = action.payload.userBoxId;
 
   const term2 = readBoxTerm({
     boxId: boxId,
-    masterRegistryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
+    masterRegistryUri: masterRegistry,
   });
 
   const readBoxResult = yield rchainToolkit.http.exploreDeploy(
@@ -32,21 +35,17 @@ const initWallet = function* (action) {
     }
   );
 
+  console.log("readBoxResult", readBoxResult);
+
   const box = rchainToolkit.utils.rhoValToJs(JSON.parse(readBoxResult).expr[0]);
   console.log("box:", box);
 
   const checkBox = box.toString();
   if (checkBox.startsWith("error")) {
-    // const rchainWeb = new RChainWeb.http({
-    //     readOnlyHost: state.reducer.readOnlyUrl,
-    //     validatorHost: state.reducer.validatorUrl,
-    //   });
-
-    // start of deploy box
     const payload = {
-      masterRegistryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
+      masterRegistryUri: masterRegistry,
       boxId: state.reducer.userBoxId,
-      publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
+      publicKey: publicKey,
     };
 
     const term = deployBoxTerm(payload);
@@ -69,7 +68,7 @@ const initWallet = function* (action) {
 
     const pd = yield prepareDeploy(
       state.reducer.readOnlyUrl,
-      process.env.NEXT_PUBLIC_PUBLIC_KEY,
+      publicKey,
       timestamp
     );
 
@@ -77,8 +76,8 @@ const initWallet = function* (action) {
       "secp256k1",
       timestamp,
       term,
-      process.env.NEXT_PUBLIC_PRIVATE_KEY,
-      process.env.NEXT_PUBLIC_PUBLIC_KEY,
+      privateKey,
+      publicKey,
       1,
       4000000000,
       validAfterBlockNumberResponse

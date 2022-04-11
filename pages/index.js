@@ -20,7 +20,7 @@ export default function Home() {
             <h5>
               RChain Publishing is the world&apos;s greenest NFT marketplace
             </h5>
-            <div>
+            <div className="mt-5">
               <button
                 type="button"
                 className={`btn btn-md ${styles.margin} ${styles.customBtnInverted}`}
@@ -41,10 +41,18 @@ export default function Home() {
           </div>
         </section>
         <br></br>
-        <section>
+        <section className="text-center">
           <div className="container">
             <h2>Top drops</h2>
             <CardList />
+          </div>
+        </section>
+        <section className={`text-center ${styles.joinCommunity}`}>
+          <div className={`hero-inner`}>
+            <div className="container">
+              <h4>Go green and join the RChain Publishing community.</h4>
+              <p>be the first to know about upcoming drops.</p>
+            </div>
           </div>
         </section>
         <section className={styles.tagline}>
@@ -56,12 +64,12 @@ export default function Home() {
         </section>
         <section className={`container ${styles.info1}`}>
           <div className={`row`}>
-            <div className="col-sm-12 col-md-4">
+            <div className="col-sm-12 col-md-4 p-5">
               <i
-                className={`fa fa-smile fa-2x ${styles.red}`}
+                className={`fa fa-leaf fa-2x ${styles.red}`}
                 aria-hidden="true"
               ></i>
-              <div className={styles.red}>
+              <div className={`mb-4 ${styles.red}`}>
                 <h5>Be green</h5>
               </div>
               <p>
@@ -77,27 +85,23 @@ export default function Home() {
 
               <p>No more nasty server farms choking the environment 24/7.</p>
               <p>
-                <button
-                  type="button"
-                  className={`btn btn-md  ${styles.margin} ${styles.customBtnColored}`}
-                >
-                  <Link href="/about">
-                    <a>Read more</a>
+               
+              <Link href="/about">
+                    <a className={`btn btn-md mt-4 ${styles.margin} ${styles.customBtnColored}`}>Read more</a>
                   </Link>
-                </button>
               </p>
             </div>
-            <div className="col-sm-12 col-md-4">
+            <div className="col-sm-12 col-md-4 p-5">
               <i
                 className={`fas fa-lock fa-2x ${styles.red}`}
                 aria-hidden="true"
               ></i>
-              <div className={styles.red}>
+              <div className={`mb-4 ${styles.red}`}>
                 <h5>Be safe</h5>
               </div>
               <p>
                 We are the first NFT marketplace that allows you to store your
-                actual digital file alongside the NFT record - ‘on chain’.
+                actual digital file alongside the NFT record ‘on chain’.
               </p>
 
               <p>
@@ -110,22 +114,18 @@ export default function Home() {
                 safe from ever being deleted or lost.
               </p>
               <p>
-                <button
-                  type="button"
-                  className={`btn btn-md ${styles.margin} ${styles.customBtnColored}`}
-                >
-                  <Link href="/about">
-                    <a>Read more</a>
+               
+              <Link href="/about">
+                    <a className={`btn btn-md mt-4 ${styles.margin} ${styles.customBtnColored}`}>Read more</a>
                   </Link>
-                </button>
               </p>
             </div>
-            <div className="col-sm-12 col-md-4">
+            <div className="col-sm-12 col-md-4 p-5">
               <i
                 className={`fa fa-globe fa-2x ${styles.red}`}
                 aria-hidden="true"
               ></i>
-              <div className={styles.red}>
+              <div className={`mb-4 ${styles.red}`}>
                 <h5>Be everywhere</h5>
               </div>
               <p>
@@ -140,68 +140,56 @@ export default function Home() {
                 other artists in our ecosystem of artists and art lovers.
               </p>
               <p>
-                <button
-                  type="button"
-                  className={`btn btn-md ${styles.margin} ${styles.customBtnColored}`}
-                >
+               
                   <Link href="/about">
-                    <a>Read more</a>
+                    <a className={`btn btn-md mt-4 ${styles.margin} ${styles.customBtnColored}`}>Read more</a>
                   </Link>
-                </button>
+              
               </p>
             </div>
           </div>
         </section>
         <section className={`${styles.section2}`}>
           <div className={`hero-inner`}>
-            <h2 className="container">Create and sell your NFTs</h2>
+            <h5 className="container">At RChain Publishing we’re also walking the talk. All digital images that you see on this website are safely stored on our blockchain - disrupting the way digital file storage and content delivery is handled.</h5>
           </div>
         </section>
-        <section className={styles.moreinfo}>
-          <div className="hero-inner">
-            <p className="container">
-              Do you know that all ditigal images used in this website are
-              stored on the blockchain? Cover images, logos, team mug shots. At
-              RChain Publishing, we are disrupting the way digital file storage
-              and content delivery is handled!
-            </p>
-          </div>
-        </section>
-        <section className={`container ${styles.info1}`}>
+        <section className={`container mt-5 mb-5 ${styles.info1}`}>
+          <h1>Create and sell your NFTs</h1>
           <div className={`row`}>
-            <div className="col-sm-12 col-md-4">
+            <div className="col-sm-12 col-md-4 p-5">
               <i
                 className={`fa fa-wallet fa-2x ${styles.red}`}
                 aria-hidden="true"
               ></i>
-              <div className={styles.red}>
-                <h5>Connect Wallet</h5>
+              <div className={`mb-4 ${styles.red}`}>
+                <h5>connect wallet</h5>
               </div>
               <p>
                 Choose your wallet, set it up and connect to RChain Publishing
                 by clicking the wallet icon in the top right hand corner.{" "}
               </p>
             </div>
-            <div className="col-sm-12 col-md-4">
+            <div className="col-sm-12 col-md-4 p-5">
               <i
                 className={`fa fa-upload fa-2x ${styles.red}`}
                 aria-hidden="true"
               ></i>
-              <div className={styles.red}>
-                <h5>Upload File</h5>
+              <div className={`mb-4 ${styles.red}`}>
+                <h5>upload file</h5>
               </div>
               <p>
                 Upload your creation (image, video, audio or 3D), give it a name
                 and description, and customise further with properties
               </p>
             </div>
-            <div className="col-sm-12 col-md-4">
+            <div className="col-sm-12 col-md-4 p-5">
               <i
                 className={`fa fa-newspaper fa-2x ${styles.red}`}
                 aria-hidden="true"
               ></i>
-              <div className={styles.red}>
-                <h5>Publish to Marketplace</h5>
+              <div className={`mb-4 ${styles.red}`}>
+                <h5>publish to marketplace</h5>
               </div>
               <p>
                 Choose where and how you want to sell your NFTs by connecting to

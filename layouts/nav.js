@@ -50,7 +50,7 @@ function NavComponent(props) {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-light ${styles.navigation}`}
+      className={`navbar navbar-expand-lg navbar-light bg-light fixed-top ${styles.navigation}`}
     >
       <div className={styles.list}>
         <Link className={`navbar-brand`} href="/">
@@ -77,7 +77,12 @@ function NavComponent(props) {
         <div className={`navbar-nav ${styles.parent}`}>
           <div className={styles.list}>
             <Link href="/marketplace">
-              <a className={styles.red}>Explore Collections</a>
+              <a className={styles.red}>Explore</a>
+            </Link>
+          </div>
+          <div className={styles.list}>
+            <Link href="/about">
+              <a className={styles.red}>About</a>
             </Link>
           </div>
           <div className={styles.list}>
@@ -85,28 +90,43 @@ function NavComponent(props) {
               <a className={styles.red}>Upload</a>
             </Link>
           </div>
-          <div className={styles.list}>
-            <Link href="/account">
-              <a className={`far fa-user-circle fa-2x ${styles.red}`}></a>
-            </Link>
-          </div>
-          <div className={styles.list}>
-            {account === undefined ? (
-              <Link href="#">
-                <a
-                  className={`fas fa-wallet fa-2x ${styles.red}`}
-                  onClick={ConnectMetaMask}
-                ></a>
-              </Link>
-            ) : (
-              <Image
-                src={`https://robohash.org/${account}`}
-                alt=""
-                width="35%"
-                height="35%"
-                className={styles.profile}
-              />
-            )}
+          <div className={styles.dropdown1}>
+            <button className={`fas fa-wallet ${styles.red} ${styles.dropbtn}`}>
+              
+            </button>
+            <i className={`fa fa-caret-down ${styles.caret}`}></i>
+            <div className={`px-4 ${styles.dropdownContent}`}>
+              <div className={styles.list}>
+                {account === undefined ? (
+                  <Link href="/account">
+                  <a className={`${styles.red}`}><i className={`far fa-user-circle fa-2x ${styles.caret}`}></i>My profile</a>
+                </Link>
+                ):(
+                  <div className={`d-flex`}>
+                     <Image
+                    src={`https://robohash.org/${account}`}
+                    alt=""
+                    width="35%"
+                    height="35%"
+                    className={styles.profile}
+                  />
+                  <p className={`mb-1 p-2 ${styles.red}`}>My profile</p>
+                  </div >
+                )}
+              </div>
+              <div className={styles.list}>
+                {account === undefined ? (
+                  <Link href="#">
+                    <a
+                      className={`${styles.red}`}
+                      onClick={ConnectMetaMask}
+                    ><i className={`fas fa-wallet fa-2x ${styles.caret}`}></i>Connect wallet</a>
+                  </Link>
+                ) : (
+                  <></>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>

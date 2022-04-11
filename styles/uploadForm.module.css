@@ -9,7 +9,7 @@
 }
 
 .fileupload {
-  color: #636fa4;
+  color: #00A36C;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,25 +23,25 @@
 }
 
 .customBtn {
-  border-color: #636fa4;
-  color: #636fa4;
+  border-color: #00A36C;
+  color: #00A36C;
   background-color: transparent;
 }
 
 .customBtn:hover {
-  border-color: #636fa4;
+  border-color: #00A36C;
   color: white;
-  background-color: #636fa4;
+  background-color: #00A36C;
 }
 
 .customBtnInverted {
-  border-color: #636fa4;
+  border-color: #00A36C;
   color: white;
-  background-color: #636fa4;
+  background-color: #00A36C;
 }
 
 .customBtnInverted:hover {
-  border-color: #636fa4;
-  color: #636fa4;
+  border-color: #00A36C;
+  color: #00A36C;
   background-color: transparent;
 }

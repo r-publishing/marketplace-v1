@@ -2,12 +2,17 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { connect } from "react-redux";
+import { useRouter } from "next/router";
+
+import { toast } from "react-toastify";
 
 import styles from "../styles/cardItem.module.css";
 import placeholder from "../public/IMG_6438.jpg";
 
 function FileItemComponent(props) {
   const nftData = props.userNftData;
+
+  const router = useRouter();
 
   const [price, setPrice] = useState();
   const [id, setId] = useState();
@@ -19,10 +24,10 @@ function FileItemComponent(props) {
   }
 
   function getNftData(file) {
-    setId(file.id);
+    setId(file.id + "_file");
     setFileData({
       [file.name]: {
-        id: file.id,
+        id: file.id + "_file",
         description: file.description,
         name: file.name,
         mimeType: file.mimeType,
@@ -38,10 +43,12 @@ function FileItemComponent(props) {
       props.publish({
         id: id,
         price: price,
-        registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
-        privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY,
         file: fileData,
       });
+
+      toast.success('Publishing file', {position: toast.POSITION.TOP_CENTER })
+      setTimeout(() => {router.push('/marketplace')}, 10000);
+      setTimeout(() => {router.reload()}, 15000);
     }
   }
 
@@ -52,8 +59,6 @@ function FileItemComponent(props) {
 
       props.init({
         user: boxId,
-        registryUri: process.env.NEXT_PUBLIC_MASTER_REGISTRY,
-        privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY,
       });
     }
   }, [props.userBoxId]);
@@ -175,8 +180,6 @@ const FileItem = connect(
           type: "INIT",
           payload: {
             user: props.user,
-            registryUri: props.registryUri,
-            privateKey: props.privateKey,
           },
         });
       },
@@ -186,9 +189,6 @@ const FileItem = connect(
           payload: {
             id: props.id,
             price: props.price,
-            user: props.user,
-            registryUri: props.registryUri,
-            privateKey: props.privateKey,
             file: props.file,
           },
         });

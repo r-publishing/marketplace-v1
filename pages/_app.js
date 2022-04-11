@@ -2,6 +2,8 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 
 import { DAppProvider } from "@usedapp/core";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 import Nav from "../layouts/nav";
 import Footer from "../layouts/footer";
@@ -55,6 +57,18 @@ function MyApp({ Component, pageProps }) {
       <DAppProvider config={{}}>
         <Provider store={store}>
           <Nav />
+          <ToastContainer
+            position="top-center"
+            autoClose={10000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+
           <Component {...pageProps} />
         </Provider>
         <Footer />
