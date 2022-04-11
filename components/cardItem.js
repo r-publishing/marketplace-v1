@@ -41,7 +41,7 @@ function CardItemComponent(props) {
         file: props.storeNftData,
       });
 
-      toast.success('Publishing file', {position: toast.POSITION.TOP_CENTER })
+      toast.success('Purchasing file', {position: toast.POSITION.TOP_CENTER })
       setTimeout(() => {router.push('/account')}, 10000);
       setTimeout(() => {router.reload()}, 15000);
     }

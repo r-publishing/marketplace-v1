@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: white;
+  color: #fff;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://images.pexels.com/photos/9724071/pexels-photo-9724071.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
@@ -20,39 +20,39 @@
 }
 /* custom colors */
 .customBtn {
-  border-color: #636fa4;
-  color: white;
+  border-color: #00A36C;
+  color: #fff;
   background-color: transparent;
 }
 
 .customBtn:hover {
-  border-color: #636fa4;
-  color: white;
-  background-color: #636fa4;
+  border-color: #00A36C;
+  color: #fff;
+  background-color: #00A36C;
 }
 
 .customBtnColored {
-  border-color: #636fa4;
-  color: #636fa4;
-  background-color: transparent;
+  border-color: #00A36C;
+  color: #00A36C;
+  background-color: #fff;
 }
 
 .customBtnColored:hover {
-  border-color: #636fa4;
-  color: white;
-  background-color: #636fa4;
+  border-color: #00A36C;
+  color: #fff;
+  background-color: #00A36C;
 }
 
 .customBtnInverted {
-  border-color: #636fa4;
-  color: white;
-  background-color: #636fa4;
+  border-color: #00A36C;
+  color: #fff;
+  background-color: #00A36C;
 }
 
 .customBtnInverted:hover {
-  border-color: #464e74;
-  color: white;
-  background-color: #464e74;
+  border-color: #355E3B;
+  color: #fff;
+  background-color: #355E3B;
 }
 
 .tagline {
@@ -62,18 +62,29 @@
   justify-content: center;
   align-items: center;
   text-align: left;
-  color: white;
+  color: #fff;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://images.pexels.com/photos/355321/pexels-photo-355321.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  margin-bottom: 70px;
 }
 
-.info1 {
-  margin-bottom: 60px;
+.joinCommunity {
+  width: 100vw;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #121212;
+  background: linear-gradient(to right, #d3f8d3, #00A36C);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin-top: 50px;
 }
 
 .moreinfo {
@@ -84,12 +95,12 @@
   align-items: center;
   text-align: center;
   color: #121212;
-  background: linear-gradient(to right, #d3f8d3, #636fa4);
+  background: linear-gradient(to right, #d3f8d3, #00A36C);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  margin-bottom: 70px;
+  margin-bottom: 25px;
 }
 
 .section2 {
@@ -99,25 +110,23 @@
   justify-content: center;
   align-items: center;
   text-align: left;
-  color: white;
+  color: #fff;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://images.pexels.com/photos/11141868/pexels-photo-11141868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  margin-bottom: 70px;
 }
 
 .info1 {
-  margin-top: 200px;
-  margin-bottom: 200px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
 .red {
-  color: #636fa4;
+  color: #00A36C;
 }

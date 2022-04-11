@@ -8,7 +8,7 @@ export default function marketplace() {
   return (
     <div className={styles.wrapper}>
       <div className={`container ${styles.margin}`}>
-        <h2>Explore Collections</h2>
+        <h2>Explore</h2>
         <CardList />
       </div>
     </div>

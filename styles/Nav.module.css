@@ -1,6 +1,5 @@
 .navigation {
   background-color: white;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -40,5 +39,52 @@
 }
 
 .red {
-  color: #636fa4;
+  color: #000;
+}
+
+.dropdown1 .dropbtn {  
+  border: none;
+  outline: none;
+  color: #00A36C;
+  /* padding: 14px 16px 15px 15px; */
+  margin: 0;
+  background-color: inherit;
+  font-size: 1.5rem;
+}
+
+.caret {
+  color: #00A36C;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  min-width: 260px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin-left: 200px;
+  background-color: #fff;
+  z-index: 9999;
+}
+
+.dropdownContent a {
+  float: none;
+  color: #000;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size:0.9rem;
+}
+
+.dropdownContent a:hover {
+  color: #313750
+}
+
+.dropdown1:hover .dropdownContent {
+  display: block;
+  float: right;
+}
+
+.profileAfter {
+  display: flex;
+
 }
