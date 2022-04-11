@@ -502,7 +502,7 @@ export default function about() {
         <section className={`container text-center ${styles.aboutRpcSection}`}>
               <h2 className={styles.red}>What is RChain?</h2>
               <p>
-              RChain is a PoS (Proof-of-Stake) blockchain platform for distributed applications. Intelligent, concurrent execution throughout the network unlocks the blockchain's potential for transactions of every type and scale. It is capable of processing anything between 40,000 to 100,000 transactions per second. This is much faster than transaction speeds on the majority of the bigger blockchains.
+              RChain is a PoS (Proof-of-Stake) blockchain platform for distributed applications. Intelligent, concurrent execution throughout the network unlocks the blockchain&apos;s potential for transactions of every type and scale. It is capable of processing anything between 40,000 to 100,000 transactions per second. This is much faster than transaction speeds on the majority of the bigger blockchains.
               </p>  
           
         </section>
