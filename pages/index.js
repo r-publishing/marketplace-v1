@@ -137,7 +137,7 @@ export default function Home() {
 
               <p>
                 What’s more, be discovered everywhere by connecting directly to
-                other artists in our ecosystem of artists and art lovers.
+                other artists in our ecosystem of artists.
               </p>
               <p>
                
