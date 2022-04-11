@@ -71,6 +71,18 @@
   text-align: left;
 }
 
+.customBtnColored {
+  border-color: #00A36C;
+  color: #00A36C;
+  background-color: #fff;
+}
+
+.customBtnColored:hover {
+  border-color: #00A36C;
+  color: #fff;
+  background-color: #00A36C;
+}
+
 .intro {
   font-size: 16px;
   max-width: 500px;
