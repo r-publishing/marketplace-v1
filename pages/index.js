@@ -151,7 +151,7 @@ export default function Home() {
         </section>
         <section className={`${styles.section2}`}>
           <div className={`hero-inner`}>
-            <h5 className="container">At RChain Publishing we’re also walking the talk. All digital images that you see on this website are safely stored on our blockchain - disrupting the way digital file storage and content delivery is handled.</h5>
+            {/* <h5 className="container">At RChain Publishing we’re also walking the talk. All digital images that you see on this website are safely stored on our blockchain - disrupting the way digital file storage and content delivery is handled.</h5> */}
           </div>
         </section>
         <section className={`container mt-5 mb-5 ${styles.info1}`}>

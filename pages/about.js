@@ -29,12 +29,11 @@ export default function about() {
               <h2 className={`${styles.red}`}>About RChain Publishing</h2>
               <br></br>
               <h5>Watch the latest RChain Publishing videos</h5>
-              <a className={`pr-link`} href="https://www.youtube.com/watch?v=7wgR4rSohHo">NFT marketplace demo</a>
+              <div className={`mb-5 ${styles.prLink}`}>
+              <Link className={`${styles.prLink}`} href="https://www.youtube.com/watch?v=7wgR4rSohHo"><a>NFT marketplace demo</a></Link>
               <br></br>
-              <a className={`pr-link`} href="https://www.youtube.com/watch?v=7wgR4rSohHo">RDrive demo</a>
-              <br></br>
-              <br></br>
-              <br></br>
+              <Link className={`${styles.prLink}`} href="https://www.youtube.com/watch?v=7wgR4rSohHo">RDrive demo</Link>
+              </div>
 
               <p>
                 At RChain Publishing we are on a mission to empower the art and

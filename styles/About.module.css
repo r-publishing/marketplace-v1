@@ -38,6 +38,10 @@
   margin-bottom: 100px;
 } */
 
+.prLink a {
+  color: #00A36C !important;
+}
+
 .padding {
   padding-top: 100px;
   padding-bottom: 100px;
