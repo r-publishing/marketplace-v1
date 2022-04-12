@@ -90,7 +90,7 @@ function NavComponent(props) {
               <a className={styles.red}>Upload</a>
             </Link>
           </div>
-          <div className={styles.dropdown1}>
+          <div className={styles.dropdown}>
             <button className={`fas fa-wallet ${styles.red} ${styles.dropbtn}`}>
               
             </button>
@@ -127,6 +127,31 @@ function NavComponent(props) {
                 )}
               </div>
             </div>
+          </div>
+          <div className={styles.mobileProfile}>
+          <div className={styles.list}>
+            <Link href="/account">
+              <a className={`${styles.red}`}>View profile</a>
+            </Link>
+          </div>
+          <div className={styles.list}>
+            {account === undefined ? (
+              <Link href="#">
+                <a
+                  className={`fas fa-wallet fa-2x ${styles.red}`}
+                  onClick={ConnectMetaMask}
+                ></a>
+              </Link>
+            ) : (
+              <Image
+                src={`https://robohash.org/${account}`}
+                alt=""
+                width="35%"
+                height="35%"
+                className={styles.profile}
+              />
+            )}
+          </div>
           </div>
         </div>
       </div>

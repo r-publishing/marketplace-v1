@@ -150,7 +150,7 @@ export default function about() {
             <div className="container">
               <div className="row pt-4">
                 <div className="col-md-3 box-shadow shadow-lg">
-                  <div className="card mb-4 box-shadow shadow-lg">
+                  <div className={`card mb-4 box-shadow shadow-lg ${styles.cardShadow}`}>
                     <div className="card-header">
                       <h4 className="my-0 font-weight-normal">Bitcoin</h4>
                     </div>
@@ -166,7 +166,7 @@ export default function about() {
                   </div>
                 </div>
                 <div className="col-md-3">
-                  <div className="card mb-4 box-shadow">
+                  <div className={`card mb-4 box-shadow shadow-lg ${styles.cardShadow}`}>
                     <div className="card-header">
                       <h4 className="my-0 font-weight-normal">Ethereum</h4>
                     </div>
@@ -182,7 +182,7 @@ export default function about() {
                   </div>
                 </div>
                 <div className={`col-md-3`}>
-                  <div className={`card mb-4 box-shadow ${styles.main}`}>
+                  <div className={`card mb-4 box-shadow ${styles.mainCard}`}>
                     <div className="card-header">
                       <h4 className="my-0 font-weight-normal">RChain</h4>
                     </div>
@@ -198,7 +198,7 @@ export default function about() {
                   </div>
                 </div>
                 <div className="col-md-3">
-                  <div className="card mb-4 box-shadow">
+                  <div className={`card mb-4 box-shadow shadow-lg ${styles.cardShadow}`}>
                     <div className="card-header">
                       <h4 className="my-0 font-weight-normal">Tezos</h4>
                     </div>
@@ -264,9 +264,9 @@ export default function about() {
               <div
                 className={`row ${styles.people} d-flex justify-content-center`}
               >
-                <div className={`col-md-4 col-lg-3 ${styles.item}`}>
+                <div className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}>
                   <div className={`${styles.box}`}>
-                    <Image src={Steve} alt={"mug"} layout="responsive" />
+                    <Image className={`img-fluid`} src={Steve} alt={"mug"} layout="responsive" />
                     <div className={`${styles.cover}`}>
                       <h3 className={`${styles.name}`}>Steve Ross-Talbot</h3>
                       <p className={`${styles.title}`}>
@@ -286,9 +286,10 @@ export default function about() {
                     </div>
                   </div>
                 </div>
-                <div className={`col-md-4 col-lg-3 ${styles.item}`}>
+                <div className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}>
                   <div className={`${styles.box}`}>
                     <Image
+                    className={`img-fluid`}
                       src={Bill}
                       alt={"mug"}
                       width={100}
@@ -314,7 +315,7 @@ export default function about() {
                     </div>
                   </div>
                 </div>
-                <div className={`col-md-4 col-lg-3 ${styles.item}`}>
+                <div className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}>
                   <div className={`${styles.box}`}>
                     <Image
                       src={Ru}
@@ -324,7 +325,7 @@ export default function about() {
                       layout="responsive"
                     />
                     <div className={`${styles.cover}`}>
-                      <h3 className={`${styles.name}`}>Ru van Vuuren</h3>
+                      <h3 className={`${styles.name}`}>Ruhan van Vuuren</h3>
                       <p className={`${styles.title}`}>
                         Cheif Operating Officer
                       </p>
@@ -342,7 +343,7 @@ export default function about() {
                     </div>
                   </div>
                 </div>
-                <div className={`col-md-4 col-lg-3 ${styles.item}`}>
+                <div className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}>
                   <div className={`${styles.box}`}>
                     <Image
                       src={Darryl}
@@ -374,7 +375,7 @@ export default function about() {
               <div
                 className={`row ${styles.people} d-flex justify-content-center`}
               >
-                <div className={`col-md-4 col-lg-3 ${styles.item}`}>
+                <div className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}>
                   <div className={`${styles.box}`}>
                     <Image
                       src={Sanda}
@@ -402,7 +403,7 @@ export default function about() {
                     </div>
                   </div>
                 </div>
-                <div className={`col-md-4 col-lg-3 ${styles.item}`}>
+                <div className={`col-md-4 col-lg-3 my-3 ${styles.item}`}>
                   <div className={`${styles.box}`}>
                     <Image src={David} alt={"mug"} layout="responsive" />
                     <div className={`${styles.cover}`}>
@@ -422,7 +423,7 @@ export default function about() {
                     </div>
                   </div>
                 </div>
-                <div className={`col-md-4 col-lg-3 ${styles.item}`}>
+                <div className={`col-md-4 col-lg-3 my-3 ${styles.item}`}>
                   <div className={`${styles.box}`}>
                     <Image
                       src={theo}
@@ -450,7 +451,7 @@ export default function about() {
                     </div>
                   </div>
                 </div>
-                <div className={`col-md-4 col-lg-3 ${styles.item}`}>
+                <div className={`col-md-4 col-lg-3 my-3 ${styles.item}`}>
                   <div className={`${styles.box}`}>
                     <Image
                       src={greg}
