@@ -27,6 +27,15 @@ export default function about() {
           <div className={`row`}>
             <div className={`col-md-6`}>
               <h2 className={`${styles.red}`}>About RChain Publishing</h2>
+              <br></br>
+              <h5>Watch the latest RChain Publishing videos</h5>
+              <a className={`pr-link`} href="https://www.youtube.com/watch?v=7wgR4rSohHo">NFT marketplace demo</a>
+              <br></br>
+              <a className={`pr-link`} href="https://www.youtube.com/watch?v=7wgR4rSohHo">RDrive demo</a>
+              <br></br>
+              <br></br>
+              <br></br>
+
               <p>
                 At RChain Publishing we are on a mission to empower the art and
                 collectibles world to become conscious travellers on their Web
@@ -503,7 +512,7 @@ export default function about() {
               <h2 className={styles.red}>What is RChain?</h2>
               <p>
               RChain is a PoS (Proof-of-Stake) blockchain platform for distributed applications. Intelligent, concurrent execution throughout the network unlocks the blockchain&apos;s potential for transactions of every type and scale. It is capable of processing anything between 40,000 to 100,000 transactions per second. This is much faster than transaction speeds on the majority of the bigger blockchains.
-              </p>  
+              </p>
                < Link href="https://rchain.coop/">
                     <a className={`btn btn-md mt-4 ${styles.customBtnColored}`}>Read more</a>
                   </Link>
