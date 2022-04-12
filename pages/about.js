@@ -23,18 +23,29 @@ export default function about() {
   return (
     <>
       <div className={` ${styles.wrapper}`}>
+      <div className={`container my-5 ${styles.update}`}>
+                <h5>Watch the latest RChain Publishing videos</h5>
+                <div className={`${styles.prLink}`}>
+                  <Link
+                    className={`${styles.prLink}`}
+                    href="https://www.youtube.com/watch?v=7wgR4rSohHo"
+                  >
+                    <a>NFT marketplace demo</a>
+                  </Link>
+                  <br></br>
+                  <Link
+                    className={`${styles.prLink}`}
+                    href="https://www.youtube.com/watch?v=7wgR4rSohHo"
+                  >
+                    RDrive demo
+                  </Link>
+                </div>
+              </div>
         <section className={`container ${styles.aboutRpcSection}`}>
           <div className={`row`}>
             <div className={`col-md-6`}>
               <h2 className={`${styles.red}`}>About RChain Publishing</h2>
               <br></br>
-              <h5>Watch the latest RChain Publishing videos</h5>
-              <div className={`mb-5 ${styles.prLink}`}>
-              <Link className={`${styles.prLink}`} href="https://www.youtube.com/watch?v=7wgR4rSohHo"><a>NFT marketplace demo</a></Link>
-              <br></br>
-              <Link className={`${styles.prLink}`} href="https://www.youtube.com/watch?v=7wgR4rSohHo">RDrive demo</Link>
-              </div>
-
               <p>
                 At RChain Publishing we are on a mission to empower the art and
                 collectibles world to become conscious travellers on their Web
@@ -150,7 +161,9 @@ export default function about() {
             <div className="container">
               <div className="row pt-4">
                 <div className="col-md-3 box-shadow shadow-lg">
-                  <div className={`card mb-4 box-shadow shadow-lg ${styles.cardShadow}`}>
+                  <div
+                    className={`card mb-4 box-shadow shadow-lg ${styles.cardShadow}`}
+                  >
                     <div className="card-header">
                       <h4 className="my-0 font-weight-normal">Bitcoin</h4>
                     </div>
@@ -166,7 +179,9 @@ export default function about() {
                   </div>
                 </div>
                 <div className="col-md-3">
-                  <div className={`card mb-4 box-shadow shadow-lg ${styles.cardShadow}`}>
+                  <div
+                    className={`card mb-4 box-shadow shadow-lg ${styles.cardShadow}`}
+                  >
                     <div className="card-header">
                       <h4 className="my-0 font-weight-normal">Ethereum</h4>
                     </div>
@@ -198,7 +213,9 @@ export default function about() {
                   </div>
                 </div>
                 <div className="col-md-3">
-                  <div className={`card mb-4 box-shadow shadow-lg ${styles.cardShadow}`}>
+                  <div
+                    className={`card mb-4 box-shadow shadow-lg ${styles.cardShadow}`}
+                  >
                     <div className="card-header">
                       <h4 className="my-0 font-weight-normal">Tezos</h4>
                     </div>
@@ -264,9 +281,16 @@ export default function about() {
               <div
                 className={`row ${styles.people} d-flex justify-content-center`}
               >
-                <div className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}>
+                <div
+                  className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}
+                >
                   <div className={`${styles.box}`}>
-                    <Image className={`img-fluid`} src={Steve} alt={"mug"} layout="responsive" />
+                    <Image
+                      className={`img-fluid`}
+                      src={Steve}
+                      alt={"mug"}
+                      layout="responsive"
+                    />
                     <div className={`${styles.cover}`}>
                       <h3 className={`${styles.name}`}>Steve Ross-Talbot</h3>
                       <p className={`${styles.title}`}>
@@ -286,10 +310,12 @@ export default function about() {
                     </div>
                   </div>
                 </div>
-                <div className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}>
+                <div
+                  className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}
+                >
                   <div className={`${styles.box}`}>
                     <Image
-                    className={`img-fluid`}
+                      className={`img-fluid`}
                       src={Bill}
                       alt={"mug"}
                       width={100}
@@ -315,7 +341,9 @@ export default function about() {
                     </div>
                   </div>
                 </div>
-                <div className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}>
+                <div
+                  className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}
+                >
                   <div className={`${styles.box}`}>
                     <Image
                       src={Ru}
@@ -343,7 +371,9 @@ export default function about() {
                     </div>
                   </div>
                 </div>
-                <div className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}>
+                <div
+                  className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}
+                >
                   <div className={`${styles.box}`}>
                     <Image
                       src={Darryl}
@@ -375,7 +405,9 @@ export default function about() {
               <div
                 className={`row ${styles.people} d-flex justify-content-center`}
               >
-                <div className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}>
+                <div
+                  className={`col-sm-6 col-md-4 col-lg-3 my-3 ${styles.item}`}
+                >
                   <div className={`${styles.box}`}>
                     <Image
                       src={Sanda}
@@ -509,13 +541,20 @@ export default function about() {
         </section>
 
         <section className={`container text-center ${styles.aboutRpcSection}`}>
-              <h2 className={styles.red}>What is RChain?</h2>
-              <p>
-              RChain is a PoS (Proof-of-Stake) blockchain platform for distributed applications. Intelligent, concurrent execution throughout the network unlocks the blockchain&apos;s potential for transactions of every type and scale. It is capable of processing anything between 40,000 to 100,000 transactions per second. This is much faster than transaction speeds on the majority of the bigger blockchains.
-              </p>
-               < Link href="https://rchain.coop/">
-                    <a className={`btn btn-md mt-4 ${styles.customBtnColored}`}>Read more</a>
-                  </Link>
+          <h2 className={styles.red}>What is RChain?</h2>
+          <p>
+            RChain is a PoS (Proof-of-Stake) blockchain platform for distributed
+            applications. Intelligent, concurrent execution throughout the
+            network unlocks the blockchain&apos;s potential for transactions of
+            every type and scale. It is capable of processing anything between
+            40,000 to 100,000 transactions per second. This is much faster than
+            transaction speeds on the majority of the bigger blockchains.
+          </p>
+          <Link href="https://rchain.coop/">
+            <a className={`btn btn-md mt-4 ${styles.customBtnColored}`}>
+              Read more
+            </a>
+          </Link>
         </section>
       </div>
     </>

@@ -50,7 +50,7 @@ function NavComponent(props) {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-light fixed-top ${styles.navigation}`}
+      className={`navbar navbar-expand-lg navbar-light bg-light ${styles.navigation}`}
     >
       <div className={styles.list}>
         <Link className={`navbar-brand`} href="/">
@@ -131,7 +131,7 @@ function NavComponent(props) {
           <div className={styles.mobileProfile}>
           <div className={styles.list}>
             <Link href="/account">
-              <a className={`${styles.red}`}>View profile</a>
+              <a className={`${styles.red}`}>View</a>
             </Link>
           </div>
           <div className={styles.list}>
