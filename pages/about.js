@@ -28,7 +28,7 @@ export default function about() {
                 <div className={`${styles.prLink}`}>
                   <Link
                     className={`${styles.prLink}`}
-                    href="https://www.youtube.com/watch?v=7wgR4rSohHo"
+                    href="https://drive.google.com/file/d/1PnhbGoUtf4aVPkbjd63fwq_c0oZCaqNx/view?usp=sharing"
                   >
                     <a>NFT marketplace demo</a>
                   </Link>
