@@ -35,7 +35,7 @@ export default function about() {
                   <br></br>
                   <Link
                     className={`${styles.prLink}`}
-                    href="https://www.youtube.com/watch?v=7wgR4rSohHo"
+              href="https://streamable.com/znuusy"
                   >
                     RDrive demo
                   </Link>
