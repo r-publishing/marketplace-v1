@@ -46,9 +46,13 @@ function FileItemComponent(props) {
         file: fileData,
       });
 
-      toast.success('Publishing file', {position: toast.POSITION.TOP_CENTER })
-      setTimeout(() => {router.push('/marketplace')}, 10000);
-      setTimeout(() => {router.reload()}, 15000);
+      toast.success("Publishing file", { position: toast.POSITION.TOP_CENTER });
+      setTimeout(() => {
+        router.push("/marketplace");
+      }, 10000);
+      setTimeout(() => {
+        router.reload();
+      }, 15000);
     }
   }
 

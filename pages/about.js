@@ -23,24 +23,24 @@ export default function about() {
   return (
     <>
       <div className={` ${styles.wrapper}`}>
-      <div className={`container my-5 ${styles.update}`}>
-                <h5>Watch the latest RChain Publishing videos</h5>
-                <div className={`${styles.prLink}`}>
-                  <Link
-                    className={`${styles.prLink}`}
-                    href="https://drive.google.com/file/d/1PnhbGoUtf4aVPkbjd63fwq_c0oZCaqNx/view?usp=sharing"
-                  >
-                    <a>NFT marketplace demo</a>
-                  </Link>
-                  <br></br>
-                  <Link
-                    className={`${styles.prLink}`}
+        <div className={`container my-5 ${styles.update}`}>
+          <h5>Watch the latest RChain Publishing videos</h5>
+          <div className={`${styles.prLink}`}>
+            <Link
+              className={`${styles.prLink}`}
+              href="https://drive.google.com/file/d/1PnhbGoUtf4aVPkbjd63fwq_c0oZCaqNx/view?usp=sharing"
+            >
+              <a>NFT marketplace demo</a>
+            </Link>
+            <br></br>
+            <Link
+              className={`${styles.prLink}`}
               href="https://streamable.com/znuusy"
-                  >
-                    RDrive demo
-                  </Link>
-                </div>
-              </div>
+            >
+              RDrive demo
+            </Link>
+          </div>
+        </div>
         <section className={`container ${styles.aboutRpcSection}`}>
           <div className={`row`}>
             <div className={`col-md-6`}>
@@ -440,7 +440,7 @@ export default function about() {
                     <Image src={David} alt={"mug"} layout="responsive" />
                     <div className={`${styles.cover}`}>
                       <h3 className={`${styles.name}`}>David Asamonye</h3>
-                      <p className={`${styles.title}`}>Software Engineer</p>
+                      <p className={`${styles.title}`}>Senior Software Engineer</p>
                       <div className={`${styles.social}`}>
                         <a href="#">
                           <i className="fab fa-facebook-official"></i>

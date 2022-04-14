@@ -84,9 +84,13 @@ function UploadFormComponent(props) {
         file: fileData,
       });
 
-      toast.success('Uploading file', {position: toast.POSITION.TOP_CENTER })
-      setTimeout(() => {router.push('/account')}, 10000);
-      setTimeout(() => {router.reload()}, 15000);
+      toast.success("Uploading file", { position: toast.POSITION.TOP_CENTER });
+      setTimeout(() => {
+        router.push("/account");
+      }, 10000);
+      setTimeout(() => {
+        router.reload();
+      }, 15000);
     }
   }
 

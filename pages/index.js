@@ -24,7 +24,8 @@ export default function Home() {
               <button
                 type="button"
                 className={`btn btn-md ${styles.margin} ${styles.customBtnInverted}`}
-              disabled>
+                disabled
+              >
                 <Link href="#">
                   <a>Upload</a>
                 </Link>
@@ -32,7 +33,8 @@ export default function Home() {
               <button
                 type="button"
                 className={`btn btn-md ${styles.margin} ${styles.customBtn}`}
-              disabled>
+                disabled
+              >
                 <Link href="#">
                   <a>Explore</a>
                 </Link>
@@ -85,10 +87,13 @@ export default function Home() {
 
               <p>No more nasty server farms choking the environment 24/7.</p>
               <p>
-               
-              <Link href="/about">
-                    <a className={`btn btn-md mt-4 ${styles.margin} ${styles.customBtnColored}`}>Read more</a>
-                  </Link>
+                <Link href="/about">
+                  <a
+                    className={`btn btn-md mt-4 ${styles.margin} ${styles.customBtnColored}`}
+                  >
+                    Read more
+                  </a>
+                </Link>
               </p>
             </div>
             <div className="col-sm-12 col-md-4 p-5">
@@ -114,10 +119,13 @@ export default function Home() {
                 safe from ever being deleted or lost.
               </p>
               <p>
-               
-              <Link href="/about">
-                    <a className={`btn btn-md mt-4 ${styles.margin} ${styles.customBtnColored}`}>Read more</a>
-                  </Link>
+                <Link href="/about">
+                  <a
+                    className={`btn btn-md mt-4 ${styles.margin} ${styles.customBtnColored}`}
+                  >
+                    Read more
+                  </a>
+                </Link>
               </p>
             </div>
             <div className="col-sm-12 col-md-4 p-5">
@@ -140,11 +148,13 @@ export default function Home() {
                 other artists in our ecosystem of artists.
               </p>
               <p>
-               
-                  <Link href="/about">
-                    <a className={`btn btn-md mt-4 ${styles.margin} ${styles.customBtnColored}`}>Read more</a>
-                  </Link>
-              
+                <Link href="/about">
+                  <a
+                    className={`btn btn-md mt-4 ${styles.margin} ${styles.customBtnColored}`}
+                  >
+                    Read more
+                  </a>
+                </Link>
               </p>
             </div>
           </div>
