@@ -63,10 +63,10 @@ function CardItemComponent(props) {
                     src={`data:${file?.mimeType};base64, ${file?.data}`}
                     className="card-img-top"
                     alt={file?.name}
-                    width="100%"
-                    height="100%"
-                    layout="responsive"
-                    objectFit="contain"
+                    width={300}
+                    height={500}
+                    layout="intrinsic"
+                    
                   />
                   <div className="card-body">
                     <p className="card-text">{file?.id}</p>
