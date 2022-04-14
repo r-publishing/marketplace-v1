@@ -24,16 +24,16 @@ export default function Home() {
               <button
                 type="button"
                 className={`btn btn-md ${styles.margin} ${styles.customBtnInverted}`}
-              >
-                <Link href="/create">
+              disabled>
+                <Link href="#">
                   <a>Upload</a>
                 </Link>
               </button>
               <button
                 type="button"
                 className={`btn btn-md ${styles.margin} ${styles.customBtn}`}
-              >
-                <Link href="/marketplace">
+              disabled>
+                <Link href="#">
                   <a>Explore</a>
                 </Link>
               </button>
