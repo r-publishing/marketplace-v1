@@ -1,0 +1,18 @@
+@import "./colors.scss";
+@import "./buttons.scss";
+
+.customCard {
+  transition: transform 0.2s;
+}
+
+.customCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
+  z-index: 3;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+

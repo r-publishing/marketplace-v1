@@ -1,0 +1,27 @@
+@import "./colors.scss";
+@import "./buttons.scss";
+
+@media only screen and (min-width: 768px) {
+  .formContainer {
+    width: 30%;
+  }
+}
+
+.form {
+  margin-top: 50px;
+}
+
+.fileupload {
+  color: $main-accent-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.button {
+  width: 100%;
+  margin-top: 20px;
+}
+

@@ -1,0 +1,102 @@
+@import "./colors.scss";
+
+.navigation {
+  background-color: $white;
+ 
+  /* height: 75px; */
+  /* display: flex;
+  align-items: center; */
+  box-shadow: 0 0 25px 0 $black;
+}
+
+.profile {
+  border-radius: 50%;
+  background-color: $light-grey;
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 800px) {
+  .navigation * {
+    display: inline;
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .parent {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.list {
+  margin: 20px;
+}
+
+.list a {
+  text-decoration: none;
+}
+
+.red {
+  color: $black;
+}
+
+.dropdown .dropbtn {  
+  border: none;
+  outline: none;
+  color: $main-accent-color;
+  /* padding: 14px 16px 15px 15px; */
+  margin: 0;
+  background-color: inherit;
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .dropdown {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .mobileProfile {
+    display: none;
+  }
+}
+
+.caret {
+  color: $main-accent-color;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  min-width: 260px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin-left: 200px;
+  background-color: $white;
+  z-index: 9999;
+}
+
+.dropdownContent a {
+  float: none;
+  color: $black;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size:0.9rem;
+}
+
+.dropdownContent a:hover {
+  color: #313750;
+  cursor: pointer;
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+  float: right;
+}
+
+.profileAfter {
+  display: flex;
+
+}

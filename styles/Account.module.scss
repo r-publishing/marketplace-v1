@@ -1,0 +1,37 @@
+@import "./colors.scss";
+@import "./buttons.scss";
+
+.wrapper {
+  min-height: calc(80vh - 50px);
+}
+
+.profileContainer {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.parent {
+  margin-bottom: 20px;
+}
+
+.profile {
+  border-radius: 50%;
+  background-color: $light-grey;
+  margin-bottom: 20px;
+}
+
+.address {
+  border: 1px solid $light-grey;
+  border-radius: 15px;
+  padding: 5px 5px 5px 5px;
+  margin-bottom: 20px;
+}
+
+.balance {
+  color: $main-accent-color;
+  margin-bottom: 50px;
+}
